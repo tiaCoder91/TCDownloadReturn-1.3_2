@@ -16,12 +16,13 @@
 /// QUI ANDRANNO TUTTE LE MODIFICHE DELLA VISTA COMPRESO IL THREAD
 @interface TCViewController : NSObject <NSWindowDelegate, NSTextViewDelegate, NSComboBoxDelegate, NSMenuDelegate, NSApplicationDelegate>
 @property (nonatomic, strong) TCWindow *window;
-@property (nonatomic, strong) TCView *mainView, *maskL;
+@property (nonatomic, strong) TCView *mainView, *maskL, *maskR;
 @property (nonatomic, strong) TCTextView *labelL, *textViewL, *labelR, *textViewR;
 @property (nonatomic, strong) TCButton *ok, *cancel;
 @property (nonatomic, strong) TCScrollView *scrollView;
 @property (nonatomic, strong) TCTask *task;
 @property (nonatomic, strong) TCThread *thread;
+@property (nonatomic, strong) TCScrollView *scrollR;
 - (NSSize)displayPixelSize;
 @end
 

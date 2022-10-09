@@ -15,9 +15,16 @@
     // Drawing code here.
 }
 
+- (instancetype)initWithFrame:(NSRect)frameRect {
+    if (self = [super initWithFrame:frameRect]) {
+        [self setWantsLayer: YES];
+        [self setNeedsDisplay: YES];
+    }
+    return self;
+}
+
 - (void)mouseDown:(NSEvent *)theEvent {
-    [self.layer setBackgroundColor: [[NSColor redColor] CGColor]];
-    [self setNeedsDisplay:YES];
+    //[self.layer setBackgroundColor: [[NSColor redColor] CGColor]];
 }
 
 @end

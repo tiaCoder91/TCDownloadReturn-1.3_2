@@ -15,6 +15,14 @@
     // Drawing code here.
 }
 
+- (instancetype)initWithFrame:(NSRect)frameRect {
+    if (self = [super initWithFrame:frameRect]) {
+        [self setWantsLayer: YES];
+        [self setNeedsDisplay: YES];
+    }
+    return self;
+}
+
 - (void)mouseDown:(NSEvent *)event {
     NSLog(@"left down.");
 }

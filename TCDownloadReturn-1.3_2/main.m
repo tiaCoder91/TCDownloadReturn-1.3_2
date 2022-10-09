@@ -87,7 +87,7 @@ int main(int argc, const char *argv[]) {
         
         controller.textViewL = [[TCTextView alloc] initWithFrame: textViewLRect];
         
-        [controller.textViewL setMaxSize:NSMakeSize(displayPixelSize.width, 200)];
+        //[controller.textViewL setMaxSize:NSMakeSize(displayPixelSize.width, 200)];
         [controller.textViewL setString:@"Hi Mattia!"];
         [controller.textViewL setMyId:1];
         [controller.textViewL setBackgroundColor: [NSColor grayColor]];
@@ -100,24 +100,36 @@ int main(int argc, const char *argv[]) {
         [controller.maskL addSubview: controller.textViewL];
         [controller.mainView addSubview: controller.maskL];
         
-#pragma mark - TCTextView ( textViewR )
+#pragma mark - MaskR
         
         NSRect textViewRRect = NSMakeRect(
                controller.window.frame.size.width-controller.window.frame.size.width/100*50,
-               controller.window.frame.size.height-30-10-controller.window.frame.size.height/100*12,
+               controller.window.frame.size.height-30-10-controller.window.frame.size.height/100*25,
                controller.window.frame.size.width/100*50-10,
-               controller.window.frame.size.height/100*12
+               controller.window.frame.size.height/100*25
         );
         
-        controller.textViewR = [[TCTextView alloc] initWithFrame: textViewRRect];
+        controller.maskR = [[TCView alloc] initWithFrame: textViewRRect];
+        [controller.maskR.layer setBackgroundColor: [[NSColor redColor] CGColor]];
         
-        [controller.textViewR setMaxSize:NSMakeSize(displayPixelSize.width, 200)];
+        controller.scrollView = [[TCScrollView alloc] initWithFrame: NSMakeRect(0, 0, textViewRRect.size.width, textViewRRect.size.height)];
+        controller.scrollView.translatesAutoresizingMaskIntoConstraints = true;
+        controller.scrollView.hasVerticalScroller = true;
+    
+        [controller.maskR addSubview: controller.scrollView];
+        
+#pragma mark - TCTextView ( textViewR )
+        
+        controller.textViewR = [[TCTextView alloc] initWithFrame: NSMakeRect(0, 0, textViewRRect.size.width, textViewRRect.size.height)];
+        
+        //[controller.textViewR setMaxSize:NSMakeSize(displayPixelSize.width, 200)];
         [controller.textViewR setString:@"Questo sarà il log per ora."];
         [controller.textViewR setMyId:2];
         [controller.textViewR setBackgroundColor: [NSColor whiteColor]];
         [controller.textViewR setDelegate: controller];
         
-        [controller.mainView addSubview: controller.textViewR];
+        controller.scrollView.documentView = controller.textViewR;
+        [controller.mainView addSubview: controller.maskR];
         
 #pragma mark - TCButton ( ok )
         

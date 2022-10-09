@@ -56,20 +56,39 @@
     [_textViewL setFrameSize: NSMakeSize(_maskL.frame.size.width, _textViewL.frame.size.height)];
     [_textViewL setFrameOrigin: NSMakePoint(0, 0)];
     
-    [_textViewR setFrameSize: NSMakeSize(window.frame.size.width/100*50-10, _textViewR.frame.size.height)];
-    [_textViewR setFrameOrigin: NSMakePoint(window.frame.size.width-_textViewR.frame.size.width-10, window.frame.size.height-30-10-_textViewR.frame.size.height)];
+/// TODO: Modifiche textViewR con scroll e maschera
     
+    [_maskR setFrameSize: NSMakeSize(window.frame.size.width/100*50-10, _maskR.frame.size.height)];
+    [_maskR setFrameOrigin: NSMakePoint(window.frame.size.width-_maskR.frame.size.width-10, window.frame.size.height-30-10-_maskR.frame.size.height)];
+    
+    [_scrollView setFrameSize: NSMakeSize(_maskR.frame.size.width, _scrollView.frame.size.height)];
+    [_scrollView setFrameOrigin: NSMakePoint(0, 0)];
+    [_textViewR setFrameSize: NSMakeSize(_scrollView.frame.size.width, _scrollView.frame.size.height)];
+    [_textViewR setFrameOrigin: NSMakePoint(0, 0)];
 }
 
 - (void)textDidChange:(NSNotification *)notification {
     TCTextView *textView = [notification object];
     textView.font = [NSFont systemFontOfSize:12.0];
-    if (textView.myId == 1) {
+    
+    if (textView.myId == 1)
+    {
         textView.textColor = [NSColor whiteColor];
-    } else if (textView.myId == 2) {
-        textView.textColor = [NSColor blackColor];
     }
+    else if (textView.myId == 2)
+    {
+        textView.textColor = [NSColor blackColor];
+        
+        [_scrollView.documentView setFrameSize: NSMakeSize(_maskR.frame.size.width, textView.frame.size.height)];
+        [_textViewR setFrameOrigin: NSMakePoint(0, 0)]; //_documentView.frame.size.height-textView.frame.size.height
+    }
+
     NSLog(@"textView = %@", textView.string);
+    NSLog(@"==========================================");
+    NSLog(@"textView : %f", textView.frame.size.height);
+    NSLog(@"_scrollView : %f", _scrollView.frame.size.height);
+    NSLog(@"_maskr : %f", _maskR.frame.size.height);
+    NSLog(@"_textView : %f", _textViewR.frame.size.height);
 }
 
 
