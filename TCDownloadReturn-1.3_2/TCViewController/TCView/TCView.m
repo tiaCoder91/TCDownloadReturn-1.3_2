@@ -15,4 +15,9 @@
     // Drawing code here.
 }
 
+- (void)mouseDown:(NSEvent *)theEvent {
+    [self.layer setBackgroundColor: [[NSColor redColor] CGColor]];
+    [self setNeedsDisplay:YES];
+}
+
 @end

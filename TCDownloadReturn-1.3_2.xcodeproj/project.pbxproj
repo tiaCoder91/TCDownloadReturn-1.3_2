@@ -21,6 +21,7 @@
 		1253EDD928EF18EA00629DBB /* TCThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 1253EDD828EF18EA00629DBB /* TCThread.m */; };
 		1253EDDD28EF191300629DBB /* TCView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1253EDDC28EF191300629DBB /* TCView.m */; };
 		128DB75A28EF198A00529FCB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 128DB75928EF198A00529FCB /* main.m */; };
+		128DB76328F18F0100529FCB /* TCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 128DB76228F18F0100529FCB /* TCScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		1253EDDB28EF191300629DBB /* TCView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCView.h; sourceTree = "<group>"; };
 		1253EDDC28EF191300629DBB /* TCView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCView.m; sourceTree = "<group>"; };
 		128DB75928EF198A00529FCB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		128DB76128F18F0100529FCB /* TCScrollView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCScrollView.h; sourceTree = "<group>"; };
+		128DB76228F18F0100529FCB /* TCScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,7 @@
 				1253EDAD28EF17DF00629DBB /* TCViewController.m */,
 				128DB75B28EF27D800529FCB /* TCWindow */,
 				1253EDDA28EF190800629DBB /* TCView */,
+				128DB76028F18ECF00529FCB /* TCScrollView */,
 				1253EDCE28EF188A00629DBB /* TCTextView */,
 				1253EDCA28EF185000629DBB /* TCButton */,
 				1253EDD228EF18B100629DBB /* TCTask */,
@@ -220,6 +224,15 @@
 				1253EDB128EF17E100629DBB /* TCWindow.m */,
 			);
 			path = TCWindow;
+			sourceTree = "<group>";
+		};
+		128DB76028F18ECF00529FCB /* TCScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				128DB76128F18F0100529FCB /* TCScrollView.h */,
+				128DB76228F18F0100529FCB /* TCScrollView.m */,
+			);
+			path = TCScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,6 +368,7 @@
 				1253EDD928EF18EA00629DBB /* TCThread.m in Sources */,
 				1253EDBD28EF17E300629DBB /* TCViewController.m in Sources */,
 				1253EDC928EF184100629DBB /* Interprete-1.1.m in Sources */,
+				128DB76328F18F0100529FCB /* TCScrollView.m in Sources */,
 				1253EDC028EF17E300629DBB /* TCWindow.m in Sources */,
 				1253EDCD28EF186000629DBB /* TCButton.m in Sources */,
 				1253EDD528EF18C100629DBB /* TCTask.m in Sources */,

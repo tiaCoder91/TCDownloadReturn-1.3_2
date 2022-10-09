@@ -92,6 +92,7 @@ int main(int argc, const char *argv[]) {
         [controller.textViewL setMyId:1];
         [controller.textViewL setBackgroundColor: [NSColor grayColor]];
         [controller.textViewL setTextColor: [NSColor whiteColor]];
+        [controller.textViewL setDelegate: controller];
         
         //[controller.mainView addSubview: controller.textViewL];
         [controller.textViewL setInsertionPointColor: [NSColor whiteColor]];
@@ -113,6 +114,8 @@ int main(int argc, const char *argv[]) {
         [controller.textViewR setMaxSize:NSMakeSize(displayPixelSize.width, 200)];
         [controller.textViewR setString:@"Questo sarà il log per ora."];
         [controller.textViewR setMyId:2];
+        [controller.textViewR setBackgroundColor: [NSColor whiteColor]];
+        [controller.textViewR setDelegate: controller];
         
         [controller.mainView addSubview: controller.textViewR];
         
@@ -134,19 +137,25 @@ int main(int argc, const char *argv[]) {
         
         
         NSMenu *mainMenu = [[NSMenu alloc] initWithTitle: @"File"];
+        
         NSMenuItem *itemApp  = [NSMenuItem new];
         [mainMenu addItem: itemApp];
+        
         NSMenu *menuApp = [[NSMenu alloc] init];
         [itemApp setSubmenu: menuApp];
-        NSMenuItem *itemQuit = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(windowWillClose:) keyEquivalent:@"q"];
+        
+        NSMenuItem *itemQuit = [[NSMenuItem alloc] initWithTitle:@"Esci" action:@selector(windowWillClose:) keyEquivalent:@"q"];
         [menuApp addItem: itemQuit];
+        
+        [menuApp addItemWithTitle:@"Copia" action:@selector(copy:) keyEquivalent:@"c"];
+        [menuApp addItemWithTitle:@"Incolla" action:@selector(paste:) keyEquivalent:@"v"];
+        [menuApp addItemWithTitle:@"Seleziona tutto" action:@selector(selectAll:) keyEquivalent:@"a"];
         
         [app setMainMenu: mainMenu];
         [app.mainMenu setDelegate: controller];
         
-        //[app.mainMenu setSupermenu: menuApp];
-        
         NSLog(@"menu = %@", [app mainMenu]);
+        
         
         [app run];
     }

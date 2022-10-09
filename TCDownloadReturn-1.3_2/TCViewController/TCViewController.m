@@ -61,6 +61,17 @@
     
 }
 
+- (void)textDidChange:(NSNotification *)notification {
+    TCTextView *textView = [notification object];
+    textView.font = [NSFont systemFontOfSize:12.0];
+    if (textView.myId == 1) {
+        textView.textColor = [NSColor whiteColor];
+    } else if (textView.myId == 2) {
+        textView.textColor = [NSColor blackColor];
+    }
+    NSLog(@"textView = %@", textView.string);
+}
+
 
 - (void)windowWillClose:(NSNotification *)notification {
     NSLog(@"Application closed!");
